@@ -13,15 +13,31 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Aetherion Biosciences',
+  title: 'Aetherion Biosciences - Engineering a New Era for Neuroscience',
   description: 'AI-native biotechnology company designing intelligent biologics to cross the blood-brain barrier and halt neurodegenerative disease.',
   metadataBase: new URL('https://aetherionbio.com'),
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   verification: {
     google: 'your-google-site-verification',
+  },
+  alternates: {
+    canonical: 'https://aetherionbio.com',
+  },
+  category: 'Biotechnology',
+  classification: 'Business',
+  other: {
+    'Content-Type': 'text/html; charset=utf-8',
+    'X-UA-Compatible': 'IE=edge',
   },
 };
 

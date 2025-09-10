@@ -16,6 +16,35 @@ const nextConfig = {
     }
     return config;
   },
+  // Security and performance optimizations
+  poweredByHeader: false,
+  compress: true,
+  generateEtags: true,
+  // Image optimization
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: false,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+  // Headers for additional security
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow'
+          }
+        ],
+      },
+    ]
+  },
 };
 
 module.exports = nextConfig;

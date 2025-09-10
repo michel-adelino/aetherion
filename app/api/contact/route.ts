@@ -106,8 +106,8 @@ export async function POST(request: NextRequest) {
       logger: process.env.NODE_ENV === 'development',
       // TLS options for better compatibility
       tls: {
-        rejectUnauthorized: false, // Set to true in production with proper certificates
-        ciphers: 'SSLv3'
+        rejectUnauthorized: process.env.NODE_ENV === 'production', // Only reject in production
+        ciphers: 'TLSv1.2:TLSv1.3' // Use modern TLS versions
       }
     });
 
