@@ -45,8 +45,8 @@ export default function PipelineHeroSection() {
         {!isVideoReady && (
           <div className="absolute inset-0 w-full h-full">
             <img
-              src="/img/SLAB_Serimmune_Ab_color01_poster.webp"
-              alt="SLAB background"
+              src="/img/3.webp"
+              alt="Pipeline Hero video"
               className="w-full h-full object-cover"
               style={{ 
                 width: '100%', 
@@ -59,8 +59,8 @@ export default function PipelineHeroSection() {
         
         {/* Video Element */}
         <video
-          src="/SLAB_Serimmune_Ab_color01.mp4"
-          poster="/SLAB_Serimmune_Ab_color01_poster.png"
+          src="/3.mp4"
+          poster="/img/3.webp"
           className={`w-full h-full object-cover transition-opacity duration-500 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
           style={{ 
             width: '100%', 

@@ -45,8 +45,8 @@ export default function AboutHeroSection() {
         {!isVideoReady && (
           <div className="absolute inset-0 w-full h-full">
             <img
-              src="/img/Tavotek_loop_blue.webp"
-              alt="Tavotek background"
+              src="/img/4.webp"
+              alt="About Hero video"
               className="w-full h-full object-cover"
               style={{ 
                 width: '100%', 
@@ -59,8 +59,8 @@ export default function AboutHeroSection() {
         
         {/* Video Element */}
         <video
-          src="Tavotek_loop_blue.mp4"
-          poster="/Tavotek_loop_blue_poster.png"
+          src="4.mp4"
+          poster="/img/4.webp"
           className={`w-full h-full object-cover transition-opacity duration-500 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
           style={{ 
             width: '100%', 

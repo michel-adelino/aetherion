@@ -43,8 +43,8 @@ export default function ContactHeroSection() {
         {!isVideoReady && (
           <div className="absolute inset-0 w-full h-full">
             <img
-              src="/img/Sinapse_Purple_loop_poster.webp"
-              alt="Sinapse background"
+              src="/img/5.webp"
+              alt="Contact Hero video"
               className="w-full h-full object-cover"
               style={{ 
                 width: '100%', 
@@ -57,8 +57,8 @@ export default function ContactHeroSection() {
         
         {/* Video Element */}
         <video
-          src="/Sinapse_Purple_loop.mp4"
-          poster="/img/Sinapse_Purple_loop_poster.webp"
+          src="/5.mp4"
+          poster="/img/5.webp"
           className={`w-full h-full object-cover transition-opacity duration-500 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
           style={{ 
             width: '100%', 

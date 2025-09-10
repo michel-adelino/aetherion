@@ -45,8 +45,8 @@ export default function HeroSection() {
         {!isVideoReady && (
           <div className="absolute inset-0 w-full h-full">
             <img
-              src="/img/Neuron_Brown_poster.webp"
-              alt="Neuron background"
+              src="/img/1.webp"
+              alt="Home Page Hero video"
               className="w-full h-full object-cover"
               style={{ 
                 width: '100%', 
@@ -59,8 +59,8 @@ export default function HeroSection() {
         
         {/* Video Element */}
         <video
-          src="/Neuron_Brown_loop.mp4"
-          poster="/img/Neuron_Brown_poster.webp"
+          src="/1.mp4"
+          poster="/img/1.webp"
           className={`w-full h-full object-cover transition-opacity duration-500 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
           style={{ 
             width: '100%', 
