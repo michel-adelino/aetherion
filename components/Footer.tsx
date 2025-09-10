@@ -65,7 +65,7 @@ export default function Footer() {
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-purple-400 flex-shrink-0" />
                 <a 
-                  href="mailto:info@aetherion-biosciences.com" 
+                  href="mailto:info@aetherionbio.com" 
                   className="text-slate-300 hover:text-purple-400 transition-colors"
                 >
                   info@aetherionbio.com

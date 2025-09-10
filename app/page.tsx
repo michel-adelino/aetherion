@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Aetherion Biosciences - Engineering a New Era for Neuroscience',
     description: 'AI-native biotechnology company designing intelligent biologics to cross the blood-brain barrier and halt neurodegenerative disease.',
     type: 'website',
-    url: 'https://aetherion-biosciences.com',
+    url: 'https://aetherionbio.com',
   },
   twitter: {
     card: 'summary_large_image',

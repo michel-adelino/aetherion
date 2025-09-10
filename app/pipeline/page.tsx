@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Our Pipeline: First-in-Class Medicines for Neurodegeneration | Aetherion Biosciences',
     description: 'Discover our portfolio of transformative CNS therapies targeting validated but historically "undruggable" targets, led by AET-101 for Parkinson\'s Disease.',
     type: 'website',
-    url: 'https://aetherion-biosciences.com/pipeline',
+    url: 'https://aetherionbio.com/pipeline',
   },
   twitter: {
     card: 'summary_large_image',

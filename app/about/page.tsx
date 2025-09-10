@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'About Aetherion: From Algorithm to Asset | Aetherion Biosciences',
     description: 'Discover the story behind Aetherion Biosciences - from groundbreaking AI research at Scripps to a clinical-stage biotech company revolutionizing neurodegeneration therapy.',
     type: 'website',
-    url: 'https://aetherion-biosciences.com/about',
+    url: 'https://aetherionbio.com/about',
   },
   twitter: {
     card: 'summary_large_image',

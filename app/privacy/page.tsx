@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Privacy Policy | Aetherion Biosciences',
     description: 'Privacy Policy for Aetherion Biosciences - Learn how we collect, use, and protect your information when you visit our website.',
     type: 'website',
-    url: 'https://aetherion-biosciences.com/privacy',
+    url: 'https://aetherionbio.com/privacy',
   },
   twitter: {
     card: 'summary',

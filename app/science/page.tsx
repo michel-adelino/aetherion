@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Our Science: The Cognate-AI™ Platform | Aetherion Biosciences',
     description: 'Discover how the Cognate-AI™ Platform revolutionizes biologic engineering with AI-native, de novo design of brain-penetrant therapeutics.',
     type: 'website',
-    url: 'https://aetherion-biosciences.com/science',
+    url: 'https://aetherionbio.com/science',
   },
   twitter: {
     card: 'summary_large_image',

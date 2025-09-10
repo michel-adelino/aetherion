@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Contact Aetherion Biosciences | Get in Touch',
     description: 'Contact Aetherion Biosciences for partnerships, investment opportunities, or career inquiries. Located in San Diego\'s Torrey Pines innovation cluster.',
     type: 'website',
-    url: 'https://aetherion-biosciences.com/contact',
+    url: 'https://aetherionbio.com/contact',
   },
   twitter: {
     card: 'summary_large_image',

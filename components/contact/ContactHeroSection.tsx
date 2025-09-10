@@ -58,7 +58,7 @@ export default function ContactHeroSection() {
         {/* Video Element */}
         <video
           src="/Sinapse_Purple_loop.mp4"
-          poster="/Sinapse_Purple_loop_poster.png"
+          poster="/img/Sinapse_Purple_loop_poster.webp"
           className={`w-full h-full object-cover transition-opacity duration-500 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
           style={{ 
             width: '100%', 

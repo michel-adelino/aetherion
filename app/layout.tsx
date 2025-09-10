@@ -15,7 +15,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Aetherion Biosciences',
   description: 'AI-native biotechnology company designing intelligent biologics to cross the blood-brain barrier and halt neurodegenerative disease.',
-  metadataBase: new URL('https://aetherion-biosciences.com'),
+  metadataBase: new URL('https://aetherionbio.com'),
   robots: {
     index: true,
     follow: true,
@@ -41,7 +41,7 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Aetherion Biosciences",
               "description": "AI-native biotechnology company designing intelligent biologics to cross the blood-brain barrier and halt neurodegenerative disease.",
-              "url": "https://aetherion-biosciences.com",
+              "url": "https://aetherionbio.com",
               "industry": "Biotechnology",
               "foundingDate": "2024",
               "specializes": [
