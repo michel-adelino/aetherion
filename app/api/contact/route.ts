@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import type SMTPTransport from 'nodemailer/lib/smtp-transport';
 
 export const dynamic = 'force-dynamic';
 
@@ -85,42 +86,42 @@ export async function POST(request: NextRequest) {
     }
 
     // Create transporter with SMTP configuration and better connection options
-    const transporter = nodemailer.createTransport({
+    const smtpPort = parseInt(process.env.SMTP_PORT || '587');
+    const smtpSecure = process.env.SMTP_SECURE
+      ? process.env.SMTP_SECURE === 'true'
+      : smtpPort === 465; // default secure true only for 465
+
+    const transportOptions: SMTPTransport.Options = {
       host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+      port: smtpPort,
+      secure: smtpSecure, // true for 465 (SMTPS), false for STARTTLS ports like 587/25
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      // Connection timeout options to fix "Greeting never received" error
-      connectionTimeout: 60000, // 60 seconds
-      greetingTimeout: 30000,   // 30 seconds
-      socketTimeout: 60000,     // 60 seconds
-      // Additional connection options
-      pool: true,
-      maxConnections: 1,
-      maxMessages: 3,
+      // Connection timeout options to fix common handshake issues
+      connectionTimeout: 60000,
+      greetingTimeout: 30000,
+      socketTimeout: 60000,
       // Debug mode (set to false in production)
       debug: process.env.NODE_ENV === 'development',
       logger: process.env.NODE_ENV === 'development',
       // TLS options for better compatibility
+      requireTLS: smtpPort === 587, // enforce STARTTLS on 587
       tls: {
-        rejectUnauthorized: process.env.NODE_ENV === 'production', // Only reject in production
-        ciphers: 'TLSv1.2:TLSv1.3' // Use modern TLS versions
+        rejectUnauthorized: process.env.NODE_ENV === 'production',
+        ciphers: 'TLSv1.2:TLSv1.3'
       }
-    });
+    };
 
-    // Verify connection configuration
+    const transporter = nodemailer.createTransport(transportOptions);
+
+    // Verify connection configuration (non-blocking: some providers close verify connections)
     try {
       await transporter.verify();
       console.log('SMTP connection verified successfully');
     } catch (verifyError) {
-      console.error('SMTP connection verification failed:', verifyError);
-      return NextResponse.json(
-        { error: 'Email service connection failed. Please check your SMTP configuration.' },
-        { status: 500 }
-      );
+      console.warn('SMTP connection verification failed, continuing to send anyway:', verifyError);
     }
 
     // Email content with better formatting
