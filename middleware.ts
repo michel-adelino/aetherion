@@ -21,6 +21,10 @@ export function middleware(request: NextRequest) {
       "img-src 'self' data: https: blob:",
       "media-src 'self' data: https: blob:",
       "connect-src 'self' https://www.google-analytics.com",
+      // Allow embedding Google content such as Maps iframes on the contact page
+      "frame-src 'self' https://www.google.com https://maps.google.com https://www.google.com/maps https://www.youtube.com",
+      // Fallback for older browsers
+      "child-src 'self' blob:",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'"
