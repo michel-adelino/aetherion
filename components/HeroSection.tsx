@@ -108,7 +108,7 @@ export default function HeroSection() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white px-8 py-4 text-lg font-medium rounded-full transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"

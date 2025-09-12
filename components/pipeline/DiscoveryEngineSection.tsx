@@ -9,6 +9,15 @@ import Link from 'next/link';
 export default function DiscoveryEngineSection() {
   const [isVisible, setIsVisible] = useState(false);
 
+  // Fallback for mobile devices - show content after a short delay
+  useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 500);
+
+    return () => clearTimeout(fallbackTimer);
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -16,7 +25,10 @@ export default function DiscoveryEngineSection() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { 
+        threshold: 0.1, // Lower threshold for better mobile detection
+        rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully visible
+      }
     );
 
     const section = document.getElementById('discovery-engine');
@@ -47,11 +59,11 @@ export default function DiscoveryEngineSection() {
   ];
 
   return (
-    <section id="discovery-engine" className="py-24 bg-gradient-to-b from-slate-50 to-white">
+    <section id="discovery-engine" className="py-12 md:py-24 bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-emerald-600">Discovery Engine</span>
             </h2>
@@ -62,7 +74,7 @@ export default function DiscoveryEngineSection() {
           </div>
 
           {/* Platform Productivity */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center mb-8 md:mb-16">
             <div className="space-y-6">
               <p className="text-xl text-slate-700 leading-relaxed">
                 AET-101 is the <strong className="text-purple-600">first of many candidates</strong> to emerge from our discovery engine. 
@@ -85,7 +97,7 @@ export default function DiscoveryEngineSection() {
 
             {/* Platform Metrics */}
             <div className="space-y-6">
-              <Card className="p-6 bg-gradient-to-r from-purple-50 to-emerald-50 border-purple-200">
+              <Card className="p-4 md:p-6 bg-gradient-to-r from-purple-50 to-emerald-50 border-purple-200">
                 <div className="flex items-center space-x-4">
                   <Cpu className="h-12 w-12 text-purple-600" />
                   <div>
@@ -95,7 +107,7 @@ export default function DiscoveryEngineSection() {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-gradient-to-r from-emerald-50 to-cyan-50 border-emerald-200">
+              <Card className="p-4 md:p-6 bg-gradient-to-r from-emerald-50 to-cyan-50 border-emerald-200">
                 <div className="flex items-center space-x-4">
                   <Zap className="h-12 w-12 text-emerald-600" />
                   <div>
@@ -105,7 +117,7 @@ export default function DiscoveryEngineSection() {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+              <Card className="p-4 md:p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
                 <div className="flex items-center space-x-4">
                   <Target className="h-12 w-12 text-blue-600" />
                   <div>
@@ -118,12 +130,12 @@ export default function DiscoveryEngineSection() {
           </div>
 
           {/* Future Pipeline */}
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold text-slate-900 text-center mb-12">Expanding Our Therapeutic Reach</h3>
+          <div className="mb-8 md:mb-16">
+            <h3 className="text-3xl font-bold text-slate-900 text-center mb-8 md:mb-12">Expanding Our Therapeutic Reach</h3>
             
             <div className="grid md:grid-cols-3 gap-8">
               {futureTargets.map((target, index) => (
-                <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 border-l-4 border-purple-500">
+                <Card key={index} className="p-4 md:p-6 hover:shadow-lg transition-all duration-300 border-l-4 border-purple-500">
                   <div className="text-center mb-4">
                     <div className="text-4xl mb-2">{target.icon}</div>
                     <h4 className="text-xl font-semibold text-slate-900">{target.disease}</h4>
@@ -140,7 +152,7 @@ export default function DiscoveryEngineSection() {
           </div>
 
           {/* Partnership Strategy */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center mb-8 md:mb-16">
             <div className="space-y-6">
               <h3 className="text-3xl font-bold text-slate-900">Strategic Partnerships</h3>
               
@@ -167,7 +179,7 @@ export default function DiscoveryEngineSection() {
             </div>
 
             <div className="space-y-6">
-              <Card className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+              <Card className="p-4 md:p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
                 <div className="flex items-center space-x-4">
                   <Globe className="h-8 w-8 text-blue-600" />
                   <div>
@@ -177,7 +189,7 @@ export default function DiscoveryEngineSection() {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200">
+              <Card className="p-4 md:p-6 bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200">
                 <div className="flex items-center space-x-4">
                   <Target className="h-8 w-8 text-emerald-600" />
                   <div>
@@ -187,7 +199,7 @@ export default function DiscoveryEngineSection() {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
+              <Card className="p-4 md:p-6 bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
                 <div className="flex items-center space-x-4">
                   <Users className="h-8 w-8 text-purple-600" />
                   <div>
@@ -200,7 +212,7 @@ export default function DiscoveryEngineSection() {
           </div>
 
           {/* Call to Action */}
-          <div className="bg-gradient-to-r from-slate-900 to-purple-900 rounded-2xl p-12 text-center">
+          <div className="bg-gradient-to-r from-slate-900 to-purple-900 rounded-2xl p-6 md:p-12 text-center">
             <h3 className="text-3xl font-bold text-white mb-6">Ready to Transform Neuroscience?</h3>
             <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto">
               Join us in our mission to engineer a new era of brain-penetrant therapeutics. Whether you're a potential partner, 

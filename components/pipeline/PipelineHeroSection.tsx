@@ -90,7 +90,7 @@ export default function PipelineHeroSection() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight break-all">
             A Pipeline of&nbsp;
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-emerald-400 to-blue-400">
               First-in-Class
@@ -100,7 +100,7 @@ export default function PipelineHeroSection() {
           </h1>
 
           {/* Sub-headline */}
-          <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-5xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
             We are systematically applying the power of the <strong className="text-purple-300">Cognate-AI™ platform</strong> to create 
             a portfolio of transformative therapies for diseases of the central nervous system. Our focus is on validated targets that have 
             historically been considered <strong className="text-emerald-300">"undruggable"</strong> with conventional biologics due to the 
@@ -109,7 +109,7 @@ export default function PipelineHeroSection() {
           </p>
 
           {/* Key Pipeline Metrics */}
-          <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+          {/* <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-8">
             <div className="flex flex-col items-center space-y-3">
               <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center">
                 <Dna className="w-8 h-8 text-purple-400" />
@@ -133,21 +133,7 @@ export default function PipelineHeroSection() {
               <h3 className="text-lg font-semibold text-white">Discovery Engine</h3>
               <p className="text-slate-400 text-center">Continuously generating new therapeutic candidates</p>
             </div>
-          </div>
-
-          {/* CTA Button */}
-          <div className="flex justify-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-purple-600 to-emerald-600 hover:from-purple-700 hover:to-emerald-700 text-white px-8 py-4 text-lg font-medium rounded-full transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
-              asChild
-            >
-              <Link href="#interactive-pipeline">
-                Explore Our Programs
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

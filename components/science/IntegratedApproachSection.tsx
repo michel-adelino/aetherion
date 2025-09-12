@@ -7,6 +7,15 @@ import { Card } from '@/components/ui/card';
 export default function IntegratedApproachSection() {
   const [isVisible, setIsVisible] = useState(false);
 
+  // Fallback for mobile devices - show content after a short delay
+  useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 500);
+
+    return () => clearTimeout(fallbackTimer);
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -14,7 +23,10 @@ export default function IntegratedApproachSection() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { 
+        threshold: 0.1, // Lower threshold for better mobile detection
+        rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully visible
+      }
     );
 
     const section = document.getElementById('integrated-approach');
@@ -24,11 +36,11 @@ export default function IntegratedApproachSection() {
   }, []);
 
   return (
-    <section id="integrated-approach" className="py-24 bg-white">
+    <section id="integrated-approach" className="py-12 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               The Aetherion Advantage: 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600"> An Integrated Approach</span>
@@ -40,8 +52,8 @@ export default function IntegratedApproachSection() {
           </div>
 
           {/* Problem Statement */}
-          <div className="mb-16">
-            <Card className="p-8 bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500">
+          <div className="mb-8 md:mb-16">
+            <Card className="p-4 md:p-8 bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500">
               <div className="flex items-start space-x-4">
                 <AlertTriangle className="h-8 w-8 text-red-600 mt-1 flex-shrink-0" />
                 <div>
@@ -63,7 +75,7 @@ export default function IntegratedApproachSection() {
           </div>
 
           {/* Solution */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center mb-8 md:mb-16">
             {/* Text Content */}
             <div className="space-y-6">
               <div className="inline-block px-4 py-2 bg-emerald-100 rounded-full">

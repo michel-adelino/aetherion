@@ -60,7 +60,7 @@ export default function ScienceHeroSection() {
         {/* Video Element */}
         <video
           src="/2.mp4"
-          poster="/2.png"
+          poster="/img/2.webp"
           className={`w-full h-full object-cover transition-opacity duration-500 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
           style={{ 
             width: '100%', 
@@ -136,7 +136,7 @@ export default function ScienceHeroSection() {
           </div>
 
           {/* CTA Button */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-8">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white px-8 py-4 text-lg font-medium rounded-full transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"

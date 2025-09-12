@@ -14,7 +14,7 @@ export default function CompanyStorySection() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     const section = document.getElementById('company-story');
@@ -55,7 +55,7 @@ export default function CompanyStorySection() {
   ];
 
   return (
-    <section id="company-story" className="py-24 bg-white">
+    <section id="company-story" className="py-12 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           {/* Section Header */}
@@ -67,7 +67,7 @@ export default function CompanyStorySection() {
           </div>
 
           {/* Origin Story */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16">
             <div className="space-y-6">
               <p className="text-xl text-slate-700 leading-relaxed">
                 Our story began in the lab of our scientific co-founder, <strong className="text-blue-600">Dr. Marcus Thorne</strong>, 
@@ -130,19 +130,20 @@ export default function CompanyStorySection() {
             <h3 className="text-3xl font-bold text-slate-900 text-center mb-12">Our Journey</h3>
             
             <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-emerald-500 rounded-full"></div>
+              {/* Timeline line - hidden on mobile, visible on desktop */}
+              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-emerald-500 rounded-full"></div>
               
-              <div className="space-y-12">
+              <div className="space-y-8 md:space-y-12">
                 {milestones.map((milestone, index) => {
                   const Icon = milestone.icon;
                   const isEven = index % 2 === 0;
                   
                   return (
                     <div key={index} className={`flex items-center ${isEven ? 'flex-row' : 'flex-row-reverse'}`}>
-                      <div className={`w-1/2 ${isEven ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                      {/* Mobile: Single column, Desktop: Alternating layout */}
+                      <div className={`w-full md:w-1/2 ${isEven ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}`}>
                         <Card className="p-6 hover:shadow-lg transition-all duration-300">
-                          <div className={`flex items-center space-x-3 ${isEven ? 'flex-row-reverse' : 'flex-row'} mb-3`}>
+                          <div className={`flex items-center space-x-3 mb-3 ${isEven ? 'md:flex-row-reverse' : 'flex-row'}`}>
                             <Icon className={`h-6 w-6 ${milestone.color}`} />
                             <span className="text-2xl font-bold text-slate-900">{milestone.year}</span>
                           </div>
@@ -151,12 +152,13 @@ export default function CompanyStorySection() {
                         </Card>
                       </div>
                       
-                      {/* Timeline node */}
-                      <div className="relative z-10">
+                      {/* Timeline node - centered on mobile, positioned on desktop */}
+                      <div className="hidden md:block relative z-10">
                         <div className={`w-4 h-4 rounded-full border-4 border-white shadow-lg ${milestone.color.replace('text-', 'bg-')}`}></div>
                       </div>
                       
-                      <div className="w-1/2"></div>
+                      {/* Desktop: Empty space for alternating layout */}
+                      <div className="hidden md:block w-1/2"></div>
                     </div>
                   );
                 })}
@@ -165,7 +167,7 @@ export default function CompanyStorySection() {
           </div>
 
           {/* Leadership Transition */}
-          <div className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-2xl p-12">
+          <div className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-2xl p-6 md:p-12">
             <div className="text-center text-white">
               <h3 className="text-3xl font-bold mb-6">Building for Impact</h3>
               <p className="text-xl text-slate-200 leading-relaxed max-w-4xl mx-auto mb-8">

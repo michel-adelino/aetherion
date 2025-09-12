@@ -30,9 +30,6 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">A</span>
-              </div>
               <div className="flex flex-col">
                 <span className="font-bold text-2xl text-white">Aetherion</span>
                 <span className="text-blue-300 font-medium">Biosciences</span>

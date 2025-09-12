@@ -104,7 +104,7 @@ export default function ContactHeroSection() {
           </p>
 
           {/* Quick Contact Info */}
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-8">
             <div className="flex flex-col items-center space-y-3">
               <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center">
                 <MapPin className="w-8 h-8 text-blue-400" />

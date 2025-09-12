@@ -16,7 +16,10 @@ export default function LeadProgramSection() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { 
+        threshold: 0.1, // Reduced threshold for better mobile detection
+        rootMargin: '0px 0px -50px 0px' // Trigger when element is 50px from viewport
+      }
     );
 
     const section = document.getElementById('lead-program');
@@ -57,25 +60,25 @@ export default function LeadProgramSection() {
   ];
 
   return (
-    <section id="lead-program" className="py-24 bg-white">
+    <section id="lead-program" className="py-12 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+        <div className={`transform transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 md:translate-y-8 opacity-0'}`}>
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 md:mb-6 leading-tight">
               Lead Program Deep Dive: <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-emerald-600">AET-101</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-emerald-600 mx-auto mb-8"></div>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-emerald-600 mx-auto mb-6 md:mb-8"></div>
+            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto px-4">
               A Novel Approach to Parkinson's Disease
             </p>
           </div>
 
           {/* Program Overview */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center mb-12 md:mb-16">
             {/* Molecule Visualization */}
-            <div className="relative">
-              <Card className="p-8 bg-gradient-to-br from-purple-900 to-emerald-900 text-white overflow-hidden">
+            <div className="relative mb-8 lg:mb-0">
+              <Card className="p-6 md:p-8 bg-gradient-to-br from-purple-900 to-emerald-900 text-white overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
                   <div className="absolute top-4 left-4 w-4 h-4 bg-purple-400 rounded-full animate-pulse"></div>
                   <div className="absolute top-12 right-8 w-3 h-3 bg-emerald-400 rounded-full animate-pulse animation-delay-1000"></div>
@@ -125,10 +128,10 @@ export default function LeadProgramSection() {
           </div>
 
           {/* Preclinical Data */}
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold text-slate-900 text-center mb-12">Key Preclinical Data Highlights</h3>
+          <div className="mb-12 md:mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-8 md:mb-12">Key Preclinical Data Highlights</h3>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
               {preclinicalData.map((data, index) => {
                 const Icon = data.icon;
                 return (
@@ -145,7 +148,7 @@ export default function LeadProgramSection() {
             </div>
 
             {/* Detailed Results */}
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
               <Card className="p-6 border-l-4 border-purple-500">
                 <div className="flex items-center space-x-3 mb-4">
                   <Brain className="h-6 w-6 text-purple-600" />
@@ -172,11 +175,11 @@ export default function LeadProgramSection() {
           </div>
 
           {/* Development Timeline */}
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold text-slate-900 text-center mb-12">Current Status & Timeline</h3>
+          <div className="mb-12 md:mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-8 md:mb-12">Current Status & Timeline</h3>
             
-            <Card className="p-8 bg-gradient-to-r from-slate-50 to-purple-50 border-purple-200">
-              <div className="space-y-6">
+            <Card className="p-6 md:p-8 bg-gradient-to-r from-slate-50 to-purple-50 border-purple-200">
+              <div className="space-y-4 md:space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center">
                     <CheckCircle className="h-6 w-6 text-white" />
@@ -215,10 +218,10 @@ export default function LeadProgramSection() {
           </div>
 
           {/* Key Advantages */}
-          <div className="bg-gradient-to-r from-slate-900 to-purple-900 rounded-2xl p-12 text-white">
-            <h3 className="text-3xl font-bold text-center mb-12">AET-101 Key Advantages</h3>
+          <div className="bg-gradient-to-r from-slate-900 to-purple-900 rounded-2xl p-6 md:p-12 text-white">
+            <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">AET-101 Key Advantages</h3>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Brain className="h-8 w-8 text-purple-400" />

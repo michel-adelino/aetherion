@@ -191,7 +191,7 @@ export default function ContactFormSection() {
                     Type of Inquiry *
                   </Label>
                   <Select value={formData.inquiryType} onValueChange={(value) => handleInputChange('inquiryType', value)}>
-                    <SelectTrigger className="h-12 border-slate-300 focus:border-blue-500 focus:ring-blue-500">
+                    <SelectTrigger id="inquiryType" className="h-12 border-slate-300 focus:border-blue-500 focus:ring-blue-500">
                       <SelectValue placeholder="Select the type of inquiry" />
                     </SelectTrigger>
                     <SelectContent>
